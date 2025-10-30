@@ -1,0 +1,97 @@
+@import "tailwindcss";
+.body{
+  margin: 0;
+}
+
+li{
+  
+  font-weight: 400;
+  text-decoration: inherit;
+}
+
+/* li :hover{
+  color: rgba(226, 226, 44, 0.699);
+} */
+
+a {
+  margin-right: 10;
+  margin-left: 5;
+}
+
+.progress {
+   width: 100.8px;
+   height: 16.8px;
+   border-radius: 16.8px;
+   background: linear-gradient(#474bff 0 0) left/0% 100% no-repeat #dbdcef;
+   animation: progress-c2d4ps 2s infinite steps(10);
+}
+
+@keyframes progress-c2d4ps {
+   100% {
+      background-size: 110% 100%;
+   }
+}
+
+
+
+
+/* .animated-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.background-image {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://static1.gensler.com/uploads/image/100396/1758310751637/project-san-diego-international-airport-terminal-1-2025-01-2000x1125.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.text-overlay {
+  position: relative;
+  color: white;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.text-overlay h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.text-overlay p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.links a {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #f0c040;
+}
+
+ */

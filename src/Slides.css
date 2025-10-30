@@ -1,0 +1,130 @@
+.projects-section {
+  text-align: center;
+  background-color: rgb(237, 237, 237);
+  padding: 80px 20px;
+}
+
+.projects-header {
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #111;
+  letter-spacing: 3px;
+  text-transform: capitalize;
+   left: 0%;
+  transform: translate(-20%);
+  
+}
+
+.projects-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 60px 20px;
+  background-color: rgb(237, 237, 237);
+}
+
+/* ===== INDIVIDUAL CARD ===== */
+.project-card {
+  position: relative;
+  width: 320px;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: #000;
+} */
+
+
+
+
+.project-card:hover {
+  transform: translateY(-10px);
+} */ */
+
+/* ===== FRONT SIDE ===== */
+.front {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.5s ease;
+}
+
+.front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(85%);
+}
+
+.front-title {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+/* 
+===== BACK SIDE ===== */
+.back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgb(243, 239, 239),
+    rgba(105, 102, 102, 0.95)
+  );
+  color: #0f0f0f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+
+.project-card:hover .back {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-card:hover .front {
+  opacity: 1;
+}
+
+/* ===== BACK CONTENT ===== */
+.back-content {
+  padding: 25px;
+  text-align: left;
+}
+
+.back-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.back-content .location {
+  font-weight: 500;
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.back-content .description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.arrow {
+  font-size: 1.6rem;
+  color: #ff4747;
+  display: inline-block;
+  margin-top: 10px;
+}
