@@ -1,11 +1,12 @@
 // import { useState } from 'react'
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import SignUp from "./pages/signUp";
+import SignUp from "./pages/SignUp";
+
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Cards from "./components/cards";
-import HeroSection from "./components/HeroSection";
+
 import ProjectCards from "./components/ProjectCard";
 import DialogueSection from "./components/DialogueSection";
 import FooterSection from "./components/FooterSection";
