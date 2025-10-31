@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../Api/instance";
-import Loader from "../components/loader";
+import Loader from "../components/Loader";
 import { ToastContainer, toast } from "react-toastify";
 // import { Loader } from "lucide-react";
 import { useNavigate } from "react-router-dom";
