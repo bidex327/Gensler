@@ -23,7 +23,7 @@ function App() {
                 <Navbar />
                 <Home />
                 <ProjectCards />
-                <Cards /> {/* 👈 moved here so it shows publicly */}
+                {/* <Cards /> */}
                 <DialogueSection />
                 <FooterSection />
               </>
