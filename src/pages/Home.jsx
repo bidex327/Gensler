@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react'
 import Slide from '../components/swiper';
 import Hero from "../components/hero"
-import Cards from '../components/cards';
+// import Cards from '../components/cards';
 import HeroSection from '../components/HeroSection';
 import AnimatedSection from '../components/AnimatedSection';
 
@@ -23,7 +23,7 @@ return(
   <div className="w-full relative">
 <Slide/>
 <Hero/>
-<Cards/>
+{/* <Cards/> */}
 <div className="flex justify-center items-center gap-5 mt-10">
   <button className="text-black border border-black py-3 px-6 rounded cursor-pointer font-semibold transition-colors duration-300 hover:bg-yellow-400">
     VIEW LATEST RESEARCH
