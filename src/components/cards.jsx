@@ -10,7 +10,8 @@ export default function Cards() {
   const [direction, setDirection] = useState(0); // for animation direction
 
   const limit = 6;
-  const baseUrl = "http://localhost:5000/api/cards";
+ const baseUrl = "https://nodejsy-app.vercel.app/api/cards";
+
 
   useEffect(() => {
     async function fetchCards() {
