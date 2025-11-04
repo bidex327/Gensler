@@ -15,34 +15,24 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          {/* Public homepage - visible to everyone */}
+          {/* Protected homepage */}
           <Route
             path="/"
             element={
-              <>
+              <ProtectedRoute>
                 <Navbar />
                 <Home />
                 <ProjectCards />
-                {/* <Cards /> */}
+                <Cards />
                 <DialogueSection />
                 <FooterSection />
-              </>
-            }
-          />
-
-          {/* Signup and Login routes */}
-          <Route path="/create-user" element={<SignUp />} />
-          <Route path="/login-user" element={<Login />} />
-
-          {/* Protected route for internal pages */}
-          <Route
-            path="/private-cards"
-            element={
-              <ProtectedRoute>
-                <Cards />
               </ProtectedRoute>
             }
           />
+
+          {/* Signup and Login remain public */}
+          <Route path="/create-user" element={<SignUp />} />
+          <Route path="/login-user" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>
