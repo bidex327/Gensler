@@ -6,61 +6,57 @@ import axios from "axios";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
   const location = useLocation();
   const menuRef = useRef(null);
+
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
+  useEffect(() => setIsOpen(false), [location]);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
     window.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      window.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => window.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  useEffect (()=>{
-    const fetchAPI = async () =>{
-      const response = await axios.get ("https://nodejsy-app.vercel.app/")
-      console.log (response.data)
-    }
+  useEffect(() => {
+    const fetchAPI = async () => {
+      try {
+        const response = await axios.get("https://nodejsy-app.vercel.app/");
+        console.log(response.data);
+      } catch (err) {
+        console.log("API not reachable");
+      }
+    };
     fetchAPI();
-  }, [])
+  }, []);
 
   return (
-    <nav className="bg-white text-black w-full  p-auto mt-0 sticky top-0 z-[10] ">
-      <div className="max-w-[1200px] mx-auto mt-2 p-8  flex flex-row justify-between">
+    <nav
+      className={`bg-white text-black w-full sticky top-0 z-[10] transition-all duration-300 ${
+        isScrolled ? "shadow-md" : ""
+      }`}
+    >
+      <div className="max-w-[1200px] mx-auto flex justify-between items-center py-4 px-6">
+        {/* Logo */}
         <Link to="/">
-          <div className="text-2x1 font-bold z-10 text-red-700 text-x1 " >
-            <h1 className="text-3xl dancing-script-topic inline">Gensler</h1>
-          </div>
+          <h1 className="text-3xl font-bold text-red-700 dancing-script-topic">
+            Gensler
+          </h1>
         </Link>
-          <button 
-          className="block md:hidden text-white" 
+
+        {/* Hamburger Icon (Mobile) */}
+        <button
+          className="block md:hidden text-black focus:outline-none"
           onClick={toggleMenu}
         >
           <svg
@@ -70,43 +66,59 @@ const Navbar = () => {
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            {isOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
           </svg>
         </button>
-        <div >
-          <ul className="flex flex-row items-center gap-4 justify-between pr-50 ">
-            <li className=" hover:text-amber-200 transition-all duration-300" >
-              <a href="#">Research & Insights</a>
-            </li>
-            <li className=" hover:text-amber-200 transition-all duration-300">
-              <a href="#">Expertise</a>
-            </li>
-            <li className=" hover:text-amber-200 transition-all duration-300">
-              <a href="#">Projects</a>
-            </li>
-            <li className=" hover:text-amber-200 transition-all duration-300">
-              <a href="#">People</a>
-            </li>
-            <li className=" hover:text-amber-200 transition-all duration-300">
-              <a href="#">Offices</a>
-            </li>
-            <li className=" hover:text-amber-200 transition-all duration-300">
-              <a href="#">About</a>
-            </li>
-            <li className=" hover:text-amber-200 transition-all duration-300">
-              <a href="#">Careers</a>
-            </li>
-            <li className=" hover:text-amber-200 transition-all duration-300 ">
-              <a href="#">Contact Us</a>
-            </li>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-6 items-center">
+          {["Research & Insights", "Expertise", "Projects", "People", "Offices", "About", "Careers", "Contact Us"].map(
+            (item, index) => (
+              <li
+                key={index}
+                className="hover:text-amber-400 transition-all duration-300"
+              >
+                <a href="#">{item}</a>
+              </li>
+            )
+          )}
+        </ul>
+      </div>
+
+      {/* Mobile Dropdown */}
+      {isOpen && (
+        <div
+          ref={menuRef}
+          className="md:hidden bg-white border-t border-gray-200 shadow-inner"
+        >
+          <ul className="flex flex-col items-center py-4 gap-4">
+            {["Research & Insights", "Expertise", "Projects", "People", "Offices", "About", "Careers", "Contact Us"].map(
+              (item, index) => (
+                <li
+                  key={index}
+                  className="hover:text-amber-400 transition-all duration-300"
+                >
+                  <a href="#">{item}</a>
+                </li>
+              )
+            )}
           </ul>
         </div>
-      </div>
+      )}
     </nav>
   );
 };
