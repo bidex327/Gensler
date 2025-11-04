@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Cards from "./components/cards";
+
 import ProjectCards from "./components/ProjectCard";
 import DialogueSection from "./components/DialogueSection";
 import FooterSection from "./components/FooterSection";
@@ -23,7 +23,7 @@ function App() {
                 <Navbar />
                 <Home />
                 <ProjectCards />
-                <Cards />
+                
                 <DialogueSection />
                 <FooterSection />
               </ProtectedRoute>
