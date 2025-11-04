@@ -23,11 +23,12 @@ export default function SignUp() {
     }));
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await api.post("http://localhost:5000/api/create-user", formData);
+      const response = await api.post("https://nodejsy-app.vercel.app/api/create-user", formData);
       console.log(response);
       if (response?.status == 201) {
         const data = await response.data;
