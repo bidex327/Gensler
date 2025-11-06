@@ -10,6 +10,7 @@ export default function Cards() {
   const [direction, setDirection] = useState(0);
 
   const limit = 6;
+  // ✅ Replace with your live backend
   const baseUrl = "https://nodejsy-app.vercel.app/api/cards";
 
   useEffect(() => {
@@ -33,19 +34,19 @@ export default function Cards() {
     fetchCards();
   }, [page]);
 
-  function handleNext() {
+  const handleNext = () => {
     if (page < pageCount) {
       setDirection(1);
       setPage(page + 1);
     }
-  }
+  };
 
-  function handlePrev() {
+  const handlePrev = () => {
     if (page > 1) {
       setDirection(-1);
       setPage(page - 1);
     }
-  }
+  };
 
   const variants = {
     enter: (dir) => ({
@@ -68,11 +69,12 @@ export default function Cards() {
   };
 
   if (loading)
-    return <p className="text-center text-gray-500">Loading cards...</p>;
-  if (error) return <p className="text-center text-red-500">Error: {error}</p>;
+    return <p className="text-center text-gray-500 py-10">Loading cards...</p>;
+  if (error)
+    return <p className="text-center text-red-500 py-10">Error: {error}</p>;
 
   return (
-    <div className="text-center py-10 bg-gray-50 relative overflow-hidden px-4 sm:px-6 lg:px-8">
+    <div className="text-center py-10 bg-gray-50 relative overflow-hidden">
       <AnimatePresence custom={direction} mode="wait">
         <motion.div
           key={page}
@@ -81,46 +83,77 @@ export default function Cards() {
           initial="enter"
           animate="center"
           exit="exit"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-3
+            lg:grid-cols-4
+            gap-6
+            px-4
+            md:px-8
+            max-w-7xl
+            mx-auto
+            w-full
+          "
         >
           {cards.map((card) => (
             <motion.div
               key={card.id}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
-              className="bg-white rounded-lg p-5 shadow-md text-center hover:shadow-xl transition-all"
+              className="
+                bg-white
+                rounded-2xl
+                p-4
+                shadow-md
+                hover:shadow-xl
+                transition-all
+                flex
+                flex-col
+                justify-between
+                w-full
+                h-auto
+              "
             >
-              <img
-                src={card.image}
-                alt={card.title}
-                className="w-full h-48 object-cover rounded-md mb-3"
-              />
-              <small className="block text-sm text-gray-500 mb-1">
-                {card.category}
-              </small>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                {card.title}
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                {card.description}
-              </p>
+              {/* ✅ Image adjusts automatically to its content */}
+              <div className="w-full mb-3">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="w-full h-auto object-cover rounded-lg"
+                />
+              </div>
+
+              {/* ✅ Text section */}
+              <div className="text-left flex flex-col flex-grow">
+                <small className="block text-sm text-gray-500 mb-1">
+                  {card.category}
+                </small>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2 break-words">
+                  {card.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {card.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
       </AnimatePresence>
 
-      {/* Pagination */}
-      <div className="mt-6 flex justify-center items-center gap-4">
+      {/* ✅ Pagination Controls */}
+      <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
         <button
           onClick={handlePrev}
           disabled={page === 1}
-          className={`px-4 py-2 rounded-md text-white transition-all duration-300 ${
+          className={`px-5 py-2 rounded-md text-white font-medium transition-all duration-300 ${
             page === 1
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-black hover:bg-gray-800"
           }`}
         >
-          ⬅
+          ⬅ Prev
         </button>
 
         <span className="text-gray-700 font-medium">
@@ -130,13 +163,13 @@ export default function Cards() {
         <button
           onClick={handleNext}
           disabled={page === pageCount}
-          className={`px-4 py-2 rounded-md text-white transition-all duration-300 ${
+          className={`px-5 py-2 rounded-md text-white font-medium transition-all duration-300 ${
             page === pageCount
               ? "bg-gray-400 cursor-not-allowed"
               : "bg-black hover:bg-gray-800"
           }`}
         >
-          ➡
+          Next ➡
         </button>
       </div>
     </div>
