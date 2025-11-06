@@ -7,11 +7,10 @@ export default function Cards() {
   const [pageCount, setPageCount] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [direction, setDirection] = useState(0); // for animation direction
+  const [direction, setDirection] = useState(0);
 
   const limit = 6;
- const baseUrl = "https://nodejsy-app.vercel.app/api/cards";
-
+  const baseUrl = "https://nodejsy-app.vercel.app/api/cards";
 
   useEffect(() => {
     async function fetchCards() {
@@ -73,7 +72,7 @@ export default function Cards() {
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
   return (
-    <div className="text-center py-10 bg-gray-50 relative overflow-hidden">
+    <div className="text-center py-10 bg-gray-50 relative overflow-hidden px-4 sm:px-6 lg:px-8">
       <AnimatePresence custom={direction} mode="wait">
         <motion.div
           key={page}
@@ -82,7 +81,7 @@ export default function Cards() {
           initial="enter"
           animate="center"
           exit="exit"
-          className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-6 p-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         >
           {cards.map((card) => (
             <motion.div
@@ -94,7 +93,7 @@ export default function Cards() {
               <img
                 src={card.image}
                 alt={card.title}
-                className="w-full h-[150px] object-cover rounded-md mb-3"
+                className="w-full h-48 object-cover rounded-md mb-3"
               />
               <small className="block text-sm text-gray-500 mb-1">
                 {card.category}
