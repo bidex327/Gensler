@@ -9,7 +9,7 @@ export default function Cards() {
   const [error, setError] = useState(null);
   const [direction, setDirection] = useState(0);
 
-  const limit = 6;
+  const limit = 4;
   // ✅ Replace with your live backend
   const baseUrl = "https://nodejsy-app.vercel.app/api/cards";
 

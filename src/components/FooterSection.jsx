@@ -59,7 +59,7 @@ const FooterSection = () => {
 
         <div >
         <ul className="flex flex-wrap justify-center gap-2 mb-4 md:mb-0 text-sm mr-80 ">
-          <li>&copy; 2024 Company Name. All rights reserved</li>
+          <li>&copy; 2025 Company Name. All rights reserved</li>
              <li className="cursor-pointer hover:text-amber-300">Privacy statement </li>
                <li className="cursor-pointer hover:text-amber-300">Cookies preference</li>
            <li className="cursor-pointer hover:text-amber-300"> Transparency statement</li>
