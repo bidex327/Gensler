@@ -47,24 +47,29 @@ export default function Cards() {
       setPage(page - 1);
     }
   };
-
   const variants = {
     enter: (dir) => ({
       opacity: 0,
-      x: dir > 0 ? 80 : -80,
-      scale: 0.95,
+      x: dir > 0 ? 40 : -40,
+      scale: 0.98,
     }),
     center: {
       opacity: 1,
       x: 0,
       scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: {
+        duration: 0.45,
+        ease: [0.12, 0, 0.39, 1],
+      },
     },
     exit: (dir) => ({
       opacity: 0,
-      x: dir > 0 ? -80 : 80,
-      scale: 0.95,
-      transition: { duration: 0.4, ease: "easeIn" },
+      x: dir > 0 ? -40 : 40,
+      scale: 0.98,
+      transition: {
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1],
+      },
     }),
   };
 
@@ -97,11 +102,17 @@ export default function Cards() {
             w-full
           "
         >
-          {cards.map((card) => (
+           {cards.map((card, index) => (
             <motion.div
               key={card.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.35,
+                delay: index * 0.08, // ⭐ staggered card fade-in
+                ease: "easeOut",
+              }}
               whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
               className="
                 bg-white
                 rounded-2xl
@@ -116,16 +127,18 @@ export default function Cards() {
                 h-auto
               "
             >
-              {/* ✅ Image adjusts automatically to its content */}
               <div className="w-full mb-3">
                 <img
                   src={card.image}
                   alt={card.title}
                   className="w-full h-auto object-cover rounded-lg"
+                  onError={(e) => {
+                    e.target.src =
+                      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e";
+                  }}
                 />
               </div>
 
-              {/* ✅ Text section */}
               <div className="text-left flex flex-col flex-grow">
                 <small className="block text-sm text-gray-500 mb-1">
                   {card.category}
