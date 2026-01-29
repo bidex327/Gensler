@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Hero ()  {
+const Hero  =() => {
     return (
         <main className="container w-full items-center justify-center">
          <section className="bg-white w-full flex items-center flex-col">
@@ -64,3 +64,5 @@ export default function Hero ()  {
 
     )
 }
+
+export default  Hero ;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Slide from "../components/swiper";
-import Hero from "../components/hero";
+import Hero from "../components/Hero";
 import Cards from "../components/cards";
 import HeroSection from "../components/HeroSection";
 import AnimatedSection from "../components/AnimatedSection";
