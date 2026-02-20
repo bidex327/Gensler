@@ -11,7 +11,7 @@ export default function Cards() {
 
   const limit = 4;
   // ✅ Replace with your live backend
-  const baseUrl = "https://gensler-backend.vercel.app//api/cards";
+  const baseUrl = "https://gensler-backend.vercel.app/api/cards";
 
   useEffect(() => {
     async function fetchCards() {
