@@ -31,7 +31,11 @@ const Navbar = () => {
   useEffect(() => {
     const fetchAPI = async () => {
       try {
-        const response = await axios.get("https://nodejsy-app.vercel.app/");
+        // Navbar data fetch
+const response = await api.get("/");  // This calls https://gensler-backend.vercel.app/api/
+
+
+        // const response = await axios.get("https://nodejsy-app.vercel.app/");
         console.log(response.data);
       } catch (err) {
         console.log("API not reachable");
