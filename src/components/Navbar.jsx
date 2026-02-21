@@ -35,7 +35,6 @@ const Navbar = () => {
 const response = await api.get("/");  // This calls https://gensler-backend.vercel.app/api/
 
 
-        // const response = await axios.get("https://nodejsy-app.vercel.app/");
         console.log(response.data);
       } catch (err) {
         console.log("API not reachable");

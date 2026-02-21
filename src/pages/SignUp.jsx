@@ -31,7 +31,7 @@ export default function SignUp() {
       // Make sure your baseURL matches the backend you want
 const response = await api.post("/create-user", formData); 
       
-      // const response = await api.post("https://nodejsy-app.vercel.app/api/create-user", formData);
+  
 
       console.log(response);
       if (response?.status == 201) {
