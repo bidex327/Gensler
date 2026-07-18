@@ -31,8 +31,8 @@ const Navbar = () => {
   useEffect(() => {
     const fetchAPI = async () => {
       try {
-        // Navbar data fetch
-const response = await api.get("/");  // This calls https://gensler-backend.vercel.app/api/
+        
+const response = await api.get("/");  
 
 
         console.log(response.data);

@@ -28,7 +28,7 @@ export default function SignUp() {
     e.preventDefault();
     setLoading(true);
     try {    
-      // Make sure your baseURL matches the backend you want
+      
 const response = await api.post("/create-user", formData); 
       
   
