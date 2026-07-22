@@ -34,7 +34,7 @@ const response = await api.post("/login-user", formData);
     
       console.log(response);
       if (response?.status == 200) {
-        const data = await response.data;
+        const data =  response.data;
         console.log(data);
         const token = data?.token;
         console.log(token);

@@ -35,7 +35,7 @@ const response = await api.post("/create-user", formData);
 
       console.log(response);
       if (response?.status == 201) {
-        const data = await response.data;
+        const data =  response.data;
         console.log(data);
         const token = data?.token;
         console.log(token);
