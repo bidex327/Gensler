@@ -79,112 +79,121 @@ export default function Cards() {
     return <p className="text-center text-red-500 py-10">Error: {error}</p>;
 
   return (
-    <div className="text-center py-10 bg-gray-50 relative overflow-hidden">
-      <AnimatePresence custom={direction} mode="wait">
-        <motion.div
-          key={page}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            md:grid-cols-3
-            lg:grid-cols-4
-            gap-6
-            px-4
-            md:px-8
-            max-w-7xl
-            mx-auto
-            w-full
-          "
-        >
-           {cards.map((card, index) => (
-            <motion.div
-              key={card.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.35,
-                delay: index * 0.08, // ⭐ staggered card fade-in
-                ease: "easeOut",
-              }}
-              whileHover={{ scale: 1.03 }}
-              className="
-                bg-white
-                rounded-2xl
-                p-4
-                shadow-md
-                hover:shadow-xl
-                transition-all
-                flex
-                flex-col
-                justify-between
-                w-full
-                h-auto
-              "
-            >
-              <div className="w-full mb-3">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="w-full h-auto object-cover rounded-lg"
-                  onError={(e) => {
-                    e.target.src =
-                      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e";
-                  }}
-                />
-              </div>
+   <div className="bg-gray-50 py-16 lg:py-24 overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-              <div className="text-left flex flex-col flex-grow">
-                <small className="block text-sm text-gray-500 mb-1">
-                  {card.category}
-                </small>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 break-words">
-                  {card.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {card.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </AnimatePresence>
+    {/* Section Heading */}
+    <div className="text-center mb-14">
+      <p className="uppercase tracking-[4px] text-red-700 font-semibold text-sm">
+        Featured Insights
+      </p>
 
-      {/* ✅ Pagination Controls */}
-      <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-        <button
-          onClick={handlePrev}
-          disabled={page === 1}
-          className={`px-5 py-2 rounded-md text-white font-medium transition-all duration-300 ${
-            page === 1
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-black hover:bg-gray-800"
-          }`}
-        >
-          ⬅ Prev
-        </button>
+      <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+        Research & Stories
+      </h2>
 
-        <span className="text-gray-700 font-medium">
-          Page {page} of {pageCount}
-        </span>
-
-        <button
-          onClick={handleNext}
-          disabled={page === pageCount}
-          className={`px-5 py-2 rounded-md text-white font-medium transition-all duration-300 ${
-            page === pageCount
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-black hover:bg-gray-800"
-          }`}
-        >
-          Next ➡
-        </button>
-      </div>
+      <p className="mt-5 text-gray-600 max-w-2xl mx-auto leading-8">
+        Explore the latest thinking, projects, and innovations shaping the
+        future of architecture, workplace design, and urban environments.
+      </p>
     </div>
+
+    <AnimatePresence custom={direction} mode="wait">
+      <motion.div
+        key={page}
+        custom={direction}
+        variants={variants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+      >
+        {cards.map((card, index) => (
+          <motion.div
+            key={card.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.35,
+              delay: index * 0.08,
+              ease: "easeOut",
+            }}
+            whileHover={{ y: -8 }}
+            className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
+          >
+            <div className="overflow-hidden">
+              <img
+                src={card.image}
+                alt={card.title}
+                className="w-full h-64 object-cover group-hover:scale-110 transition duration-700"
+                onError={(e) => {
+                  e.target.src =
+                    "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e";
+                }}
+              />
+            </div>
+
+            <div className="p-6 flex flex-col flex-grow text-left">
+              <small className="uppercase tracking-[2px] text-red-700 font-semibold text-xs">
+                {card.category}
+              </small>
+
+              <h3 className="mt-3 text-xl font-bold text-gray-900 leading-7 group-hover:text-red-700 transition">
+                {card.title}
+              </h3>
+
+              <p className="mt-4 text-gray-600 leading-7 flex-grow">
+                {card.description}
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </AnimatePresence>
+
+    {/* Pagination */}
+    <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4">
+      <button
+        onClick={handlePrev}
+        disabled={page === 1}
+        className={`px-6 py-3 rounded-md text-white font-semibold transition ${
+          page === 1
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-black hover:bg-red-700"
+        }`}
+      >
+        ⬅ Prev
+      </button>
+
+      <span className="text-gray-700 font-medium">
+        Page {page} of {pageCount}
+      </span>
+
+      <button
+        onClick={handleNext}
+        disabled={page === pageCount}
+        className={`px-6 py-3 rounded-md text-white font-semibold transition ${
+          page === pageCount
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-black hover:bg-red-700"
+        }`}
+      >
+        Next ➡
+      </button>
+    </div>
+
+    {/* Bottom Buttons */}
+    <div className="flex flex-col sm:flex-row justify-center items-center gap-5 mt-12">
+      <button className="border-2 border-black px-8 py-3 rounded-md font-semibold transition duration-300 hover:bg-yellow-400 hover:border-yellow-400 w-full sm:w-auto">
+        VIEW LATEST RESEARCH
+      </button>
+
+      <button className="border-2 border-black px-8 py-3 rounded-md font-semibold transition duration-300 hover:bg-yellow-400 hover:border-yellow-400 w-full sm:w-auto">
+        VIEW DIALOGUE BLOG
+      </button>
+    </div>
+
+  </div>
+</div>
   );
 }

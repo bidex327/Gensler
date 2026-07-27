@@ -18,11 +18,11 @@ const AnimatedSection = () => {
   return (
     <section
       ref={ref}
-      className="relative w-full h-screen overflow-hidden text-white flex justify-center items-center"
+      className="relative w-full min-h-screen overflow-hidden text-white flex justify-center items-center"
     >
       {/* Animated background */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-[1] brightness-[0.9]"
+       className="absolute inset-0 z-[2] flex flex-col justify-center items-center px-6 sm:px-10 lg:px-16 text-center"
         style={{
           backgroundImage:
             'url("https://static1.gensler.com/uploads/image/100396/1758310751637/project-san-diego-international-airport-terminal-1-2025-01-2000x1125.jpg")',
@@ -41,7 +41,7 @@ const AnimatedSection = () => {
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <motion.h1
-          className="text-sm text-white capitalize -translate-x-[40%] tracking-wider"
+        className="text-xs sm:text-sm uppercase tracking-[4px] text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 1 }}
@@ -50,7 +50,7 @@ const AnimatedSection = () => {
         </motion.h1>
 
         <motion.h2
-          className="text-[2.5rem] font-semibold capitalize mb-2"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -59,7 +59,7 @@ const AnimatedSection = () => {
         </motion.h2>
 
         <motion.p
-          className="text-[1.1rem] mb-8 text-[#e6e6e6] leading-relaxed"
+         className="text-base sm:text-lg lg:text-xl text-gray-200 leading-8 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 1 }}
@@ -71,7 +71,7 @@ const AnimatedSection = () => {
 
         {/* Animated links section */}
         <motion.nav
-          className="flex flex-col items-center justify-between gap-5 hover:text-amber-300"
+          className="flex flex-col items-center gap-4 mt-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}

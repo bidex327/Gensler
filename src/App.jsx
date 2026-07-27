@@ -1,41 +1,30 @@
-import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import ProtectedRoute from "./components/ProtectedRoute";
+
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import ProtectedRoute from "./components/ProtectedRoute";
-
-import ProjectCards from "./components/ProjectCard";
-import DialogueSection from "./components/DialogueSection";
-import FooterSection from "./components/FooterSection";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          {/* Protected homepage */}
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Navbar />
-                <Home />
-                <ProjectCards />
-                
-                <DialogueSection />
-                <FooterSection />
-              </ProtectedRoute>
-            }
-          />
+    <BrowserRouter>
+      <Routes>
 
-          {/* Signup and Login remain public */}
-          <Route path="/create-user" element={<SignUp />} />
-          <Route path="/login-user" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route path="/create-user" element={<SignUp />} />
+        <Route path="/login-user" element={<Login />} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -5,49 +5,61 @@ const ProjectCard = ({ image, title, location, description }) => {
 
   return (
     <div
-      className="relative w-[320px] h-[380px] rounded-xl overflow-hidden shadow-[0_6px_15px_rgba(0,0,0,0.1)] cursor-pointer transition-transform duration-300 bg-black hover:-translate-y-2"
+      className="relative w-full max-w-[360px] h-[420px] rounded-2xl overflow-hidden shadow-lg bg-black cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      
+      {/* Image Side */}
       <div
-        className={`absolute inset-0 transition-opacity duration-500 ${
-          hovered ? "opacity-0" : "opacity-100"
+        className={`absolute inset-0 transition-all duration-500 ${
+          hovered ? "opacity-0 scale-110" : "opacity-100 scale-100"
         }`}
       >
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover brightness-[85%]"
+          className="w-full h-full object-cover brightness-90"
         />
-        <div className="absolute bottom-[15px] left-[20px] text-white text-[1.2rem] font-semibold drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]">
-          {title}
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+        <div className="absolute bottom-6 left-6 right-6">
+          <h3 className="text-white text-xl sm:text-2xl font-bold leading-tight">
+            {title}
+          </h3>
         </div>
       </div>
 
-      
+      {/* Hover Side */}
       <div
-        className={`absolute inset-0 flex flex-col justify-center items-center text-[#0f0f0f] bg-gradient-to-br from-[#f3efef] to-[rgba(105,102,102,0.95)] transition-all duration-500 transform ${
-          hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+        className={`absolute inset-0 bg-gradient-to-br from-white to-gray-200 flex items-center transition-all duration-500 ${
+          hovered
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="px-[25px] text-left">
-          <h3 className="text-[1.4rem] mb-[10px]">{title}</h3>
-          <p className="font-medium text-[1rem] text-[#666] mb-[10px]">
+        <div className="px-8">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">
+            {title}
+          </h3>
+
+          <p className="uppercase tracking-wider text-red-700 font-semibold text-sm mb-4">
             {location}
           </p>
-          <p className="text-[0.95rem] leading-[1.5] mb-[20px]">
+
+          <p className="text-gray-600 leading-7">
             {description}
           </p>
-          <span className="text-[1.6rem] text-[#ff4747] mt-[10px] inline-block">
-            ➜
-          </span>
+
+          <button className="mt-8 flex items-center gap-2 font-semibold text-red-700 hover:text-black transition">
+            Learn More
+            <span className="text-2xl">→</span>
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
 
 const ProjectCards = () => {
   const projects = [
@@ -78,15 +90,30 @@ const ProjectCards = () => {
   ];
 
   return (
-    <section className="text-center bg-[#ededed] py-[80px] px-[20px] sm:py-[60px] sm:px-[15px]">
-      <h2 className="text-lg sm:text-base font-bold mb-[50px] text-[#111] tracking-[3px] capitalize sm:translate-x-0 -translate-x-[20%] sm:text-center">
-        FEATURED PROJECTS
-      </h2>
+    <section className="bg-[#ededed] py-16 sm:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
-      <div className="flex justify-center items-center flex-wrap gap-[30px] py-[60px] px-[20px] bg-[#ededed] sm:py-[40px] sm:px-[10px]">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
+        <div className="text-center mb-14">
+          <p className="uppercase tracking-[4px] text-red-700 font-semibold text-sm">
+            Portfolio
+          </p>
+
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
+            Featured Projects
+          </h2>
+
+          <p className="mt-5 text-gray-600 max-w-2xl mx-auto leading-8">
+            Discover a selection of projects that demonstrate innovative
+            architecture, thoughtful interiors, and impactful experiences.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 place-items-center">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+
       </div>
     </section>
   );
