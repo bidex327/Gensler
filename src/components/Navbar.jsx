@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
-    { name: "Home", to: "home" },
+   
     { name: "Swiper", to: "swiper" },
     { name: "Hero", to: "hero" },
     { name: "Cards", to: "cards" },
