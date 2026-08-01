@@ -4,7 +4,7 @@ const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("auth-token");
 
   if (!token) {
-    return <Navigate to="/create-user" replace />;
+    return <Navigate to="/login-user" replace />;
   }
 
   return children;
