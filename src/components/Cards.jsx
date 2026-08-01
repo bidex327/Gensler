@@ -10,7 +10,7 @@ export default function Cards() {
   const [direction, setDirection] = useState(0);
 
   const limit = 4;
-  // ✅ Replace with your live backend
+
   const baseUrl = "https://gensler-backend.vercel.app/api/cards";
 
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function Cards() {
             w-full
           "
         >
-           {cards.map((card, index) => (
+          {cards.map((card, index) => (
             <motion.div
               key={card.id}
               initial={{ opacity: 0, y: 20 }}
@@ -155,7 +155,6 @@ export default function Cards() {
         </motion.div>
       </AnimatePresence>
 
-      {/* ✅ Pagination Controls */}
       <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
         <button
           onClick={handlePrev}

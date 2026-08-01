@@ -6,7 +6,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
-   
     { name: "Swiper", to: "swiper" },
     { name: "Hero", to: "hero" },
     { name: "Cards", to: "cards" },
@@ -33,7 +32,6 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        {/* Logo */}
         <ScrollLink
           to="home"
           smooth={true}
@@ -46,7 +44,6 @@ const Navbar = () => {
           </h1>
         </ScrollLink>
 
-        {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center gap-5 xl:gap-7">
           {navLinks.map((item) => (
             <li key={item.name}>
@@ -65,7 +62,6 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
         <button
           aria-label="Toggle Menu"
           onClick={() => setIsOpen(!isOpen)}
@@ -75,7 +71,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-300 ${
           isOpen ? "max-h-[600px]" : "max-h-0"

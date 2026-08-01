@@ -9,7 +9,6 @@ const ProjectCard = ({ image, title, location, description }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image Side */}
       <div
         className={`absolute inset-0 transition-all duration-500 ${
           hovered ? "opacity-0 scale-110" : "opacity-100 scale-100"
@@ -30,26 +29,19 @@ const ProjectCard = ({ image, title, location, description }) => {
         </div>
       </div>
 
-      {/* Hover Side */}
       <div
         className={`absolute inset-0 bg-gradient-to-br from-white to-gray-200 flex items-center transition-all duration-500 ${
-          hovered
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8"
+          hovered ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
         <div className="px-8">
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">
-            {title}
-          </h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
 
           <p className="uppercase tracking-wider text-red-700 font-semibold text-sm mb-4">
             {location}
           </p>
 
-          <p className="text-gray-600 leading-7">
-            {description}
-          </p>
+          <p className="text-gray-600 leading-7">{description}</p>
 
           <button className="mt-8 flex items-center gap-2 font-semibold text-red-700 hover:text-black transition">
             Learn More
@@ -68,8 +60,7 @@ const ProjectCards = () => {
         "https://static1.gensler.com/uploads/image/94931/project-toca-social-birmingham-508x508_1731519207.jpg",
       title: "TOCA Social Birmingham",
       location: "Birmingham, UK",
-      description:
-        "A new social experience blending sports and entertainment.",
+      description: "A new social experience blending sports and entertainment.",
     },
     {
       image:
@@ -92,7 +83,6 @@ const ProjectCards = () => {
   return (
     <section className="bg-[#ededed] py-16 sm:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
-
         <div className="text-center mb-14">
           <p className="uppercase tracking-[4px] text-red-700 font-semibold text-sm">
             Portfolio
@@ -113,7 +103,6 @@ const ProjectCards = () => {
             <ProjectCard key={index} {...project} />
           ))}
         </div>
-
       </div>
     </section>
   );

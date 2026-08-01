@@ -2,7 +2,7 @@ import { useState } from "react";
 import api from "../Api/instance";
 import Loader from "../components/Loader";
 import { ToastContainer, toast } from "react-toastify";
-// import { Loader } from "lucide-react";
+
 import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
@@ -23,19 +23,15 @@ export default function SignUp() {
     }));
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    try {    
-      
-const response = await api.post("/create-user", formData); 
-      
-  
+    try {
+      const response = await api.post("/create-user", formData);
 
       console.log(response);
       if (response?.status == 201) {
-        const data =  response.data;
+        const data = response.data;
         console.log(data);
         const token = data?.token;
         console.log(token);
@@ -55,7 +51,7 @@ const response = await api.post("/create-user", formData);
     <div className="w-full bg-white flex flex-row items-center justify-center">
       <div className="max-w-4xl border border-gray-300">
         <h1>Sign UP</h1>
-        <form  onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input
             name="fullName"
             className="w-full p-4 focus:outline-amber-300"

@@ -10,11 +10,8 @@ import {
 const FooterSection = () => {
   return (
     <footer className="bg-black text-white">
-      {/* Career Section */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-          {/* Image */}
           <div>
             <img
               src="https://static1.gensler.com/uploads/image/85346/gensler-la-1280x900_1686179621.jpg"
@@ -23,7 +20,6 @@ const FooterSection = () => {
             />
           </div>
 
-          {/* Content */}
           <div>
             <p className="uppercase tracking-[4px] text-red-500 text-sm font-semibold mb-4">
               Careers
@@ -45,13 +41,10 @@ const FooterSection = () => {
               JOIN OUR TEAM
             </button>
           </div>
-
         </div>
 
-        {/* Divider */}
         <div className="border-t border-gray-800 my-14"></div>
 
-        {/* Navigation */}
         <div className="flex flex-wrap justify-center lg:justify-start gap-6 text-sm font-medium">
           {[
             "CONTACT",
@@ -70,10 +63,7 @@ const FooterSection = () => {
           ))}
         </div>
 
-        {/* Bottom */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col lg:flex-row justify-between items-center gap-8">
-
-          {/* Social */}
           <div className="flex items-center gap-5 text-2xl">
             <FaFacebook className="cursor-pointer hover:text-yellow-400 transition" />
             <FaYoutube className="cursor-pointer hover:text-yellow-400 transition" />
@@ -82,7 +72,6 @@ const FooterSection = () => {
             <FaLinkedinIn className="cursor-pointer hover:text-yellow-400 transition" />
           </div>
 
-          {/* Copyright */}
           <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-6 text-sm text-gray-400 text-center">
             <span>© 2025 Gensler. All rights reserved.</span>
 
@@ -98,9 +87,7 @@ const FooterSection = () => {
               Transparency Statement
             </button>
           </div>
-
         </div>
-
       </div>
     </footer>
   );

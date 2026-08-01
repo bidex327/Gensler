@@ -4,10 +4,7 @@ const DialogueSection = () => {
   return (
     <section className="bg-[#f5f5f5] py-16 sm:py-20 lg:py-24">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-
         <div className="bg-white rounded-3xl shadow-lg p-8 sm:p-10 lg:p-14 flex flex-col lg:flex-row items-center justify-between gap-10">
-
-          {/* Logo */}
           <div className="flex justify-center lg:justify-start">
             <img
               src="https://www.gensler.com/uploads/image/38246/filename/dialogue_now_masthead_1618248672.png"
@@ -16,9 +13,7 @@ const DialogueSection = () => {
             />
           </div>
 
-          {/* Content */}
           <div className="text-center lg:text-left max-w-2xl">
-
             <p className="uppercase tracking-[4px] text-red-700 font-semibold text-sm mb-4">
               Newsletter
             </p>
@@ -37,11 +32,8 @@ const DialogueSection = () => {
             <button className="mt-8 bg-red-700 text-white px-8 py-4 rounded-md font-semibold tracking-wide transition-all duration-300 hover:bg-black w-full sm:w-auto">
               SUBSCRIBE
             </button>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );
