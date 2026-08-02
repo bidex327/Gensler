@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Cards() {
-  const [cards, setCards] = useState([]);
+ const [allCards, setAllCards] = useState([]);
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
   const [loading, setLoading] = useState(true);
@@ -10,29 +10,37 @@ export default function Cards() {
   const [direction, setDirection] = useState(0);
 
   const limit = 4;
+  const cards = allCards.slice(
+  (page - 1) * limit,
+  page * limit
+);
 
   const baseUrl = "https://gensler-backend.vercel.app/api/cards";
 
-  useEffect(() => {
-    async function fetchCards() {
-      try {
-        setLoading(true);
-        setError(null);
-        const res = await fetch(`${baseUrl}?page=${page}&limit=${limit}`);
-        if (!res.ok) throw new Error("Failed to fetch cards");
+useEffect(() => {
+  async function fetchCards() {
+    try {
+      setLoading(true);
+      setError(null);
 
-        const data = await res.json();
-        setCards(data.cards || []);
-        setPageCount(data.pageCount || 1);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
+      const res = await fetch(baseUrl);
+
+      if (!res.ok) throw new Error("Failed to fetch cards");
+
+      const data = await res.json();
+
+      setAllCards(data.cards);
+
+      setPageCount(Math.ceil(data.cards.length / limit));
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
+  }
 
-    fetchCards();
-  }, [page]);
+  fetchCards();
+}, []);
 
   const handleNext = () => {
     if (page < pageCount) {
