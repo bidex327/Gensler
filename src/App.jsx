@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+// import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import FooterSection from "./components/Footer";
-import Slide from "./components/swiper";
+import Slide from "./components/Swiper";
 import Hero from "./components/Hero";
-import Cards from "./components/cards";
+import Cards from "./components/Cards"
 import HeroSection from "./components/HeroSection";
 import AnimatedSection from "./components/AnimatedSection";
 import ProjectCards from "./components/ProjectCard";
