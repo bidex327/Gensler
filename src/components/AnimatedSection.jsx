@@ -10,16 +10,23 @@ const AnimatedSection = () => {
   });
 
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
-  const overlayY = useTransform(scrollYProgress, [0, 0.25], [0, -40]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.1, 1]);
+
+  const links = [
+    "San Diego Airport's New Terminal 1 Sets Global Benchmark",
+    "The Rise of Outdoor Spaces at Airports",
+    "How to Improve Airport Construction",
+    'Designing "the Quiet Airport" at SFO',
+  ];
 
   return (
     <section
+      id="animated-section"
       ref={ref}
       className="relative w-full min-h-screen overflow-hidden text-white flex justify-center items-center"
     >
       <motion.div
-        className="absolute inset-0 z-[2] flex flex-col justify-center items-center px-6 sm:px-10 lg:px-16 text-center"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
             'url("https://static1.gensler.com/uploads/image/100396/1758310751637/project-san-diego-international-airport-terminal-1-2025-01-2000x1125.jpg")',
@@ -27,29 +34,28 @@ const AnimatedSection = () => {
         }}
         aria-hidden="true"
       />
+      <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
 
       <motion.div
-        className="absolute top-0 z-[2] flex flex-col gap-5 p-8 text-center brightness-200"
-        style={{ opacity: overlayOpacity, y: overlayY }}
-        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="relative z-10 flex flex-col gap-5 p-8 text-center max-w-4xl mx-auto"
+        style={{ opacity: overlayOpacity }}
       >
-        <motion.h1
-          className="text-xs sm:text-sm uppercase tracking-[4px] text-white"
+        <motion.p
+          className="text-xs sm:text-sm uppercase tracking-[4px] text-red-500 font-semibold"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
         >
-          SPOTLIGHT
-        </motion.h1>
+          Spotlight
+        </motion.p>
 
         <motion.h2
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.15 }}
         >
           Reinventing Travel and the Future of Airports
         </motion.h2>
@@ -57,31 +63,28 @@ const AnimatedSection = () => {
         <motion.p
           className="text-base sm:text-lg lg:text-xl text-gray-200 leading-8 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 1 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
         >
           New and upgraded airports are easing — and elevating — the traveler
-          experience through hospitality-driven design <br /> that connects
-          culture, community, and the outdoors.
+          experience through hospitality-driven design that connects culture,
+          community, and the outdoors.
         </motion.p>
 
         <motion.nav
           className="flex flex-col items-center gap-4 mt-8"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.45 }}
         >
-          {[
-            "San Diego Airport’s New Terminal 1 Sets Global Benchmark",
-            "The Rise of Outdoor Spaces at Airports",
-            "How to Improve Airport Construction",
-            "Designing “the Quiet Airport” at SFO",
-          ].map((text, i) => (
+          {links.map((text, i) => (
             <motion.a
               key={i}
               href="#"
-              className="text-white border-b border-transparent hover:border-white transition-all duration-300 ease-in-out"
-              whileHover={{ scale: 1.05 }}
+              className="text-white border-b border-transparent hover:border-red-500 hover:text-red-100 transition-all duration-300 ease-in-out"
+              whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               {text}

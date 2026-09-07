@@ -7,6 +7,14 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 
+const socialLinks = [
+  { icon: FaFacebook, label: "Facebook" },
+  { icon: FaYoutube, label: "YouTube" },
+  { icon: FaTwitterSquare, label: "Twitter" },
+  { icon: FaInstagram, label: "Instagram" },
+  { icon: FaLinkedinIn, label: "LinkedIn" },
+];
+
 const FooterSection = () => {
   return (
     <footer className="bg-black text-white">
@@ -19,25 +27,21 @@ const FooterSection = () => {
               className="w-full h-[300px] sm:h-[420px] object-cover rounded-2xl"
             />
           </div>
-
           <div>
-            <p className="uppercase tracking-[4px] text-red-500 text-sm font-semibold mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[3px] text-red-500 mb-4">
               Careers
             </p>
-
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
               Design Your Career
               <br />
               With Us
             </h2>
-
             <p className="text-gray-300 leading-8 text-base sm:text-lg max-w-xl">
               We grow our firm by growing our people. Whether you're a recent
               graduate or an experienced designer who believes in the power of
               design, explore opportunities to help shape the future with us.
             </p>
-
-            <button className="mt-8 border-2 border-white px-8 py-4 rounded-md font-semibold tracking-wide transition-all duration-300 hover:bg-yellow-400 hover:border-yellow-400 hover:text-black">
+            <button className="mt-8 border-2 border-white px-8 py-4 rounded-md font-semibold tracking-wide transition-all duration-300 hover:bg-red-700 hover:border-red-700">
               JOIN OUR TEAM
             </button>
           </div>
@@ -54,10 +58,7 @@ const FooterSection = () => {
             "INCLUSION",
             "RESILIENCE",
           ].map((item) => (
-            <button
-              key={item}
-              className="hover:text-yellow-400 transition duration-300"
-            >
+            <button key={item} className="hover:text-red-500 transition duration-300">
               {item}
             </button>
           ))}
@@ -65,25 +66,22 @@ const FooterSection = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col lg:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-5 text-2xl">
-            <FaFacebook className="cursor-pointer hover:text-yellow-400 transition" />
-            <FaYoutube className="cursor-pointer hover:text-yellow-400 transition" />
-            <FaTwitterSquare className="cursor-pointer hover:text-yellow-400 transition" />
-            <FaInstagram className="cursor-pointer hover:text-yellow-400 transition" />
-            <FaLinkedinIn className="cursor-pointer hover:text-yellow-400 transition" />
+            {socialLinks.map(({ icon: Icon, label }) => (
+              <button
+                key={label}
+                aria-label={label}
+                className="hover:text-red-500 transition"
+              >
+                <Icon />
+              </button>
+            ))}
           </div>
 
           <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-6 text-sm text-gray-400 text-center">
-            <span>© 2025 Gensler. All rights reserved.</span>
-
-            <button className="hover:text-yellow-400 transition">
-              Privacy Statement
-            </button>
-
-            <button className="hover:text-yellow-400 transition">
-              Cookie Preferences
-            </button>
-
-            <button className="hover:text-yellow-400 transition">
+            <span>© {new Date().getFullYear()} Gensler. All rights reserved.</span>
+            <button className="hover:text-red-500 transition">Privacy Statement</button>
+            <button className="hover:text-red-500 transition">Cookie Preferences</button>
+            <button className="hover:text-red-500 transition">
               Transparency Statement
             </button>
           </div>

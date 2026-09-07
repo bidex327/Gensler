@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const buttonStyle =
-  "mt-6 w-fit rounded-md border border-white/80 bg-black/20 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-all duration-300 hover:bg-amber-400 hover:text-black hover:border-amber-400";
+  "mt-6 w-fit rounded-md border border-white/80 bg-black/20 px-6 py-3 text-sm font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-all duration-300 hover:bg-red-700 hover:text-white hover:border-red-700";
 
 const overlayStyle =
   "absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/20";
@@ -38,7 +38,6 @@ const slides = [
       "max-w-2xl text-base leading-7 text-gray-200 sm:text-lg lg:text-xl",
     width: "max-w-4xl",
   },
-
   {
     type: "video",
     src: "https://data.openasset.com/3f741c2e/021dbbaf3cbf13fc044f82416ffa7da9/F_250519_gensler_city_pulse_2025_hero_mp4/F_250519_gensler_city_pulse_2025_hero_videolarge.mp4",
@@ -52,7 +51,6 @@ const slides = [
       "max-w-xl text-base leading-7 text-gray-200 sm:text-lg lg:text-xl",
     width: "max-w-3xl",
   },
-
   {
     type: "image",
     src: "https://static1.gensler.com/uploads/hero_element/25147/thumb_desktop/thumbs/horizon-hospital-2000x1125_1741041306_1600x900.jpg",
@@ -73,7 +71,6 @@ const slides = [
       "max-w-2xl text-base sm:text-lg lg:text-xl leading-7 text-gray-200",
     width: "max-w-3xl",
   },
-
   {
     type: "video",
     src: "https://data.openasset.com/3f741c2e/016157d05d7b0b938f172c4f269611a0/F_250401_Gensler_San_Francisco_Reel_2025_mp4/F_250401_Gensler_San_Francisco_Reel_2025_videolarge.mp4",
@@ -93,7 +90,6 @@ const slides = [
       "max-w-2xl text-base sm:text-lg lg:text-xl leading-7 text-gray-200",
     width: "max-w-3xl",
   },
-
   {
     type: "video",
     src: "https://data.openasset.com/3f741c2e/a63227216801fe631b141458e12ee6a9/F_250305_GPS_GenslerSF_Materials_Library_mp4/F_250305_GPS_GenslerSF_Materials_Library_videomedium.mp4",
@@ -117,7 +113,6 @@ const slides = [
       "max-w-2xl text-base sm:text-lg lg:text-xl leading-7 text-gray-200",
     width: "max-w-4xl",
   },
-
   {
     type: "video",
     src: "https://data.openasset.com/3f741c2e/d980c8c311d84ad78c0647b5ba86f05b/F_241121_N7_mp4/F_241121_N7_videomedium.mp4",
@@ -143,8 +138,8 @@ const slides = [
 
 const Slide = () => {
   return (
-    <section className="mt-24 md:mt-32">
-      <Swiper id="swiper"
+    <section id="swiper" className="mt-24 md:mt-32">
+      <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
         pagination={{ clickable: true }}
@@ -154,7 +149,7 @@ const Slide = () => {
         className="w-full"
         style={{
           "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fbbf24",
+          "--swiper-pagination-color": "#b91c1c",
           "--swiper-pagination-bullet-inactive-color": "#d1d5db",
           "--swiper-pagination-bullet-inactive-opacity": "0.6",
         }}
@@ -187,33 +182,28 @@ const Slide = () => {
             <div className={contentStyle}>
               <div className={slide.width}>
                 <h1 className={slide.titleClass}>{slide.title}</h1>
-
-                <BsDashLg className="my-5 text-5xl text-amber-400" />
-
+                <BsDashLg className="my-5 text-5xl text-red-600" />
                 <p className={slide.descriptionClass}>{slide.description}</p>
-
                 <button className={buttonStyle}>{slide.button}</button>
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+
       <section className="bg-black">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-6 text-white lg:flex-row lg:items-center lg:justify-between">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-400">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-red-500">
             Trending Topics
           </h3>
-
           <div className="flex flex-col gap-3 text-sm md:flex-row md:flex-wrap md:gap-8">
-            <a href="#" className="transition hover:text-amber-400">
+            <a href="#" className="transition hover:text-red-500">
               2025 Workplace Trends
             </a>
-
-            <a href="#" className="transition hover:text-amber-400">
+            <a href="#" className="transition hover:text-red-500">
               Design For Preparedness
             </a>
-
-            <a href="#" className="transition hover:text-amber-400">
+            <a href="#" className="transition hover:text-red-500">
               Conversions+™ by Gensler
             </a>
           </div>

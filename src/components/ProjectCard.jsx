@@ -19,9 +19,7 @@ const ProjectCard = ({ image, title, location, description }) => {
           alt={title}
           className="w-full h-full object-cover brightness-90"
         />
-
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
         <div className="absolute bottom-6 left-6 right-6">
           <h3 className="text-white text-xl sm:text-2xl font-bold leading-tight">
             {title}
@@ -36,13 +34,10 @@ const ProjectCard = ({ image, title, location, description }) => {
       >
         <div className="px-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-3">{title}</h3>
-
           <p className="uppercase tracking-wider text-red-700 font-semibold text-sm mb-4">
             {location}
           </p>
-
           <p className="text-gray-600 leading-7">{description}</p>
-
           <button className="mt-8 flex items-center gap-2 font-semibold text-red-700 hover:text-black transition">
             Learn More
             <span className="text-2xl">→</span>
@@ -81,17 +76,15 @@ const ProjectCards = () => {
   ];
 
   return (
-    <section className="bg-[#ededed] py-16 sm:py-20 lg:py-24">
+    <section id="project-cards" className="bg-[#ededed] py-16 sm:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <div className="text-center mb-14">
-          <p className="uppercase tracking-[4px] text-red-700 font-semibold text-sm">
+          <p className="text-xs font-semibold uppercase tracking-[3px] text-red-700">
             Portfolio
           </p>
-
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900">
             Featured Projects
           </h2>
-
           <p className="mt-5 text-gray-600 max-w-2xl mx-auto leading-8">
             Discover a selection of projects that demonstrate innovative
             architecture, thoughtful interiors, and impactful experiences.
