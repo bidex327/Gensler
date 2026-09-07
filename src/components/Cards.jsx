@@ -48,18 +48,16 @@ export default function Cards() {
   };
 
   const variants = {
-    enter: (dir) => ({ opacity: 0, x: dir > 0 ? 40 : -40, scale: 0.98 }),
+    enter: (dir) => ({ opacity: 0, x: dir >= 0 ? 60 : -60 }),
     center: {
       opacity: 1,
       x: 0,
-      scale: 1,
-      transition: { duration: 0.45, ease: [0.12, 0, 0.39, 1] },
+      transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
     },
     exit: (dir) => ({
       opacity: 0,
-      x: dir > 0 ? -40 : 40,
-      scale: 0.98,
-      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+      x: dir >= 0 ? -60 : 60,
+      transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
     }),
   };
 
@@ -78,7 +76,7 @@ export default function Cards() {
 
   return (
     <div id="cards" className="text-center py-16 bg-gray-50 relative overflow-hidden">
-      <AnimatePresence custom={direction} mode="wait">
+      <AnimatePresence custom={direction} mode="wait" initial={false}>
         <motion.div
           key={page}
           custom={direction}
@@ -88,12 +86,9 @@ export default function Cards() {
           exit="exit"
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 md:px-8 max-w-7xl mx-auto w-full"
         >
-          {cards.map((card, index) => (
+          {cards.map((card) => (
             <motion.div
               key={card.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, delay: index * 0.08, ease: "easeOut" }}
               whileHover={{ y: -4 }}
               className="bg-white rounded-2xl p-4 shadow-md hover:shadow-xl transition-all flex flex-col justify-between w-full h-auto text-left"
             >

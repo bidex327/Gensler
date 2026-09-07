@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 
 import SignUp from "./pages/SignUp";
@@ -21,7 +21,7 @@ function App() {
         <Route
           path="/"
           element={
-            // <ProtectedRoute>
+            <ProtectedRoute>
               <>
                 <div id="home" />
                 <Navbar />
