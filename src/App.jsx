@@ -19,7 +19,7 @@ function App() {
         <Route
           path="/"
           element={
-            <ProtectedRoute>
+            // <ProtectedRoute>
               <>
                 <Navbar />
                 <Slide />
@@ -30,7 +30,7 @@ function App() {
 
                 <FooterSection />
               </>
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
 

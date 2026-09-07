@@ -144,7 +144,7 @@ const slides = [
 const Slide = () => {
   return (
     <section className="mt-24 md:mt-32">
-      <Swiper
+      <Swiper id="swiper"
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation
         pagination={{ clickable: true }}
